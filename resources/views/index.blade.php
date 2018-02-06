@@ -135,7 +135,7 @@
     <section class="features">
         {{-- <div class="p-5 overlay"> --}}
             <div class="container my-auto">
-                <div class="row">
+                <div class="my-5 row">
                     <div class="col-lg-12 text-center">
                         <hr>
                         <div class="row">
