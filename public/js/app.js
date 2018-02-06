@@ -57607,7 +57607,12 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* 41 */
 /***/ (function(module, exports) {
 
+$(document).ready(function () {
 
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+});
 
 /***/ }),
 /* 42 */
