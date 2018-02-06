@@ -133,11 +133,11 @@
     </section>
     
     <section class="features">
-        {{-- <div class="p-5 overlay"> --}}
+        <div class="p-5 overlay">
             <div class="container my-auto">
-                <div class="my-5 row">
+                <div class="my-md-5 row">
                     <div class="col-lg-12 text-center">
-                        <hr>
+                        <hr class="bg-light">
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="card">
@@ -164,11 +164,11 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <hr class="bg-light">
                     </div>
                 </div>
             </div>
-        {{-- </div> --}}
+        </div>
     </section>
     
     {{-- About --}}
