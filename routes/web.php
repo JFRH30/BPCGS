@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::resource('subject','SubjectsController');
 
 Auth::routes();
 

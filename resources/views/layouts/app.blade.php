@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    @include('partials.head')
-    {{-- Styles --}}
-    @include('partials.styles')
+  @include('partials.head')
+  {{-- Styles --}}
+  @include('partials.styles')
 </head>
 <body>
-    <div class="wrapper">
-        {{-- Aside --}}
-        @include('partials.aside')
-        
-        {{-- Content --}}
-        <main>
-            
-        </main>
+  {{-- Navbar --}}
+  @include('partials.nav')
 
-    {{-- Scripts --}}
-    @include('partials.scripts')
+  {{-- Content --}}
+  @yield('content')
+  {{-- Footer --}}
+  @include('partials.footer')
+
+  {{-- Scripts --}}
+  @include('partials.scripts')
 </body>
 </html>
