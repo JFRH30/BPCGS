@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Subject;
+use Yajra\Datatables\Datatables;
 
 class SubjectsController extends Controller
 {
@@ -17,14 +18,9 @@ class SubjectsController extends Controller
         return view('subject.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function data()
     {
-        
+        return Datatables::of(Subject::query())->make(true);
     }
 
     /**
@@ -35,7 +31,24 @@ class SubjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'subject_code' => 'required',
+            'subject_title' => 'required',
+            'subject_unit' => 'required',
+            'subject_course' => 'required',
+            'subject_sem' => 'required',
+        ]);
+
+        $subjects = new Subject;
+        $subjects->subject_code = $request->subject_code;
+        $subjects->subject_title = $request->subject_title;
+        $subjects->subject_unit = $request->subject_unit;
+        $subjects->subject_course = $request->subject_course;
+        $subjects->subject_sem = $request->subject_sem;
+        $subjects->save();
+
+        return view('subject.index');
+        
     }
 
     /**

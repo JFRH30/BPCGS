@@ -16,10 +16,10 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject_code');
-            $table->string('subject_desc');
+            $table->string('subject_title');
+            $table->integer('subject_unit');
             $table->string('subject_course');
             $table->string('subject_sem');
-            $table->string('subject_unit');
             $table->timestamps();
         });
     }

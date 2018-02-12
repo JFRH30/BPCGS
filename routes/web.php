@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::resource('subject','SubjectsController');
+
+Route::resource('subjects', 'SubjectsController');
+Route::get('subjectsData','SubjectsController@data')->name('subjectsData');
 
 Auth::routes();
 
