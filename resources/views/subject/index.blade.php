@@ -25,7 +25,7 @@
 							</div>
 							<div class="form-group">
 								{!! Form::label('subject_sem', 'Semester:') !!}
-								{!! Form::select('subject_sem', ['1stSem'=>'1st Semester', '2nd'=>'2nd Semester'], null, ['class'=>'form-control', 'placeholder'=>'--- Select semester ---']) !!}
+								{!! Form::select('subject_sem', ['1st Sem'=>'1st Semester', '2nd Sem'=>'2nd Semester'], null, ['class'=>'form-control', 'placeholder'=>'--- Select semester ---']) !!}
 							</div>
 							<hr>
 							{!! Form::submit('ADD',['class'=>'btn btn-success btn-block']) !!}
@@ -63,7 +63,6 @@
         serverSide: true,
         ajax: '{!! route('subjectsData') !!}',
         columns: [
-            {data:'id'},
 						{data:'subject_code'},
 						{data:'subject_title'},
 						{data:'subject_unit'},

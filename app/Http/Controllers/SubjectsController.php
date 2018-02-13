@@ -46,7 +46,7 @@ class SubjectsController extends Controller
         $subjects->subject_course = $request->subject_course;
         $subjects->subject_sem = $request->subject_sem;
         $subjects->save();
-
+        flash('Subject successfully added');
         return view('subject.index');
         
     }

@@ -8,7 +8,8 @@
 <body>
   {{-- Navbar --}}
   @include('partials.nav')
-
+  
+  @include('flash::message')
   {{-- Content --}}
   @yield('content')
   {{-- Footer --}}
