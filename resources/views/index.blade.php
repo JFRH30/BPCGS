@@ -23,6 +23,10 @@
   </style>
 @endpush
 
+@section('title', '| Home')
+
+@section('status','active')
+
 @section('content')
   {{-- Header --}}
   <header class="header" id="home">
@@ -61,7 +65,7 @@
   </header>
 
   {{-- Features --}}
-  <section class="p-5 bg-light">
+  <section class="p-5 bg-light" id="features">
       <div class="container">
           <div class="row">
               <div class="col-lg-12 text-center">
@@ -99,7 +103,7 @@
       </div>        
   </section>
   
-  <section class="about">
+  <section class="about" id="about">
       <div class="p-5 overlay">
           <div class="container my-auto">
               <div class="my-md-5 row">

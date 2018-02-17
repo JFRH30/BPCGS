@@ -6,5 +6,5 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 {{-- Title & Logo --}}
-<title>{{ config('app.name') }}</title>
+<title>{{ config('app.name') }} @yield('title')</title>
 <link rel="icon" href="{{ asset('img/logo.png') }}">

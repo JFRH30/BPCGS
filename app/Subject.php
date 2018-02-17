@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    public $primaryKey = 'subject_id';
+    protected $fillable = [
+    	'subject_code', 'subject_title', 'subject_unit', 'subject_course', 'subject_sem'
+    ];
 }

@@ -15,8 +15,14 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('subjects', 'SubjectsController');
-Route::get('subjectsData','SubjectsController@data')->name('subjectsData');
+// Subject
+Route::prefix('subjects')->group(function()
+{
+	Route::get('/','SubjectsController@index')->name('subjects');
+	Route::get('getData','SubjectsController@getData')->name('getData');
+	Route::post('postData','SubjectsController@postData')->name('postData');
+	Route::get('fetchData','SubjectsController@fetchData')->name('fetchData');
+});
 
 Auth::routes();
 
