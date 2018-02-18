@@ -140,8 +140,7 @@
             columns: 
             [
                 {data: 'name'},
-                {data: 'email'},
-                {data: 'position'}
+                {data: 'email'}
             ]
         });
     });
