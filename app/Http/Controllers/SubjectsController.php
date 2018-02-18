@@ -60,11 +60,7 @@ class SubjectsController extends Controller
     				'subject_sem' => $request->get('subject_sem')
     			]);
     			$subject->save();
-    			$success = '<div class="alert alert-success alert-dismissible fade show" role="alert">'.$request->get('subject_title').' Inserted
-						    			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											    <span aria-hidden="true">&times;</span>
-											  </button>
-					 					 </div>';
+    			$success = '<script>toastr.success("Subject Inserted")</script>';
     		}
     		if ($request->get('buttonAction') =='update') {
     			$subject = Subject::find($request->get('subjectid'));
@@ -74,20 +70,7 @@ class SubjectsController extends Controller
     			$subject->subject_course = $request->get('subject_course');
     			$subject->subject_sem = $request->get('subject_sem');
     			$subject->save();
-    			$success = '<div class="alert alert-primary alert-dismissible fade show" role="alert">'.$request->get('subject_title').' Updated
-						    			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											    <span aria-hidden="true">&times;</span>
-											  </button>
-					 					 </div>';
-    		}
-    		if ($request->get('buttonAction')=='destroy') {
-    			$subject = Subject::find($request->get('subjectid'));
-    			$subject->delete();
-    			$success = '<div class="alert alert-info alert-dismissible fade show" role="alert">'.$request->get('subject_title').' Deleted
-						    			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											    <span aria-hidden="true">&times;</span>
-											  </button>
-					 					 </div>';
+    			$success = '<script>toastr.info("Subject Updated")</script>';
     		}
 
     	}
@@ -113,5 +96,14 @@ class SubjectsController extends Controller
     	);
     	return json_encode($output);
 			
+    }
+
+    function removeData(Request $request)
+    {
+        $subject = Subject::find($request->input('id'));
+        if($subject->delete())
+        {
+            echo 'Subject Deleted';
+        }
     }
 }

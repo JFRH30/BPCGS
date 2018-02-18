@@ -22,6 +22,7 @@ Route::prefix('subjects')->group(function()
 	Route::get('getData','SubjectsController@getData')->name('getData');
 	Route::post('postData','SubjectsController@postData')->name('postData');
 	Route::get('fetchData','SubjectsController@fetchData')->name('fetchData');
+	Route::get('removeData','SubjectsController@removeData')->name('removeData');
 });
 
 Auth::routes();

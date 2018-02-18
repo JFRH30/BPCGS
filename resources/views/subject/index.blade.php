@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Manage Subject')
+
 @section('content')
 	<section class="container mb-5">
 		<div class="row">
@@ -84,6 +86,13 @@
 							{data: 'action', orderable:false, searchable: false}
 						]
 					});
+
+
+					$.ajaxSetup({
+					    headers: {
+					        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					    }
+					});
 					// Store
 					$('#storeForm').on('submit',function(event)
 					{
@@ -101,9 +110,9 @@
 									var errorHtml = '';
 									for(var count = 0; count < data.error.length; count++)
                     {
-                        errorHtml += '<div class="alert alert-danger alert-dismissible fade show">'+data.error[count]+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+                        errorHtml = data.error[count];
+                        toastr.error(errorHtml);
                     }
-                    $('#formOutput').html(errorHtml);
 								}
 								else
 								{
@@ -137,31 +146,32 @@
 								$('#buttonAction').val('update');
 							}
 						})
-					})
+					});
 
 					// Delete
 					$(document).on('click','.delete', function()
 					{
 						var id = $(this).attr("id");
-						$('#formOutput').html('');
-						$.ajax({
-							url: '{{ route('fetchData') }}',
-							method: 'GET',
-							data: {id:id},
-							dataType: 'json',
-							success: function(data){
-								$('#subjectid').val(data.subjectid);
-								$('#subject_code').val(data.subject_code);
-								$('#subject_title').val(data.subject_title);
-								$('#subject_unit').val(data.subject_unit);
-								$('#subject_course').val(data.subject_course);
-								$('#subject_sem').val(data.subject_sem);
-								$('#submitValue').val('DELETE');
-								$('#buttonAction').val('destroy');
-							}
-						})
-					})
+						if(confirm("Are you sure want to delete this this subject?"))
+						{
+							$.ajax({
+								url: '{{ route('removeData') }}',
+								method: 'GET',
+								data: {id:id},
+								success: function(data)
+								{
+									alert(data);
+									$('#subjectTable').DataTable().ajax.reload();
+								}
+							})
+						}
+						else
+						{
+							return false;
+						}
+					});
 				});
+
 	</script>
 
 @endpush
