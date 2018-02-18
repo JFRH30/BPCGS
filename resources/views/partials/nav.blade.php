@@ -14,9 +14,9 @@
         @if (Auth::guest())
             <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
             <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
         @else
           <li class="nav-item dropdown">
+
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}

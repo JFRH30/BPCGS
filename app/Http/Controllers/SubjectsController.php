@@ -9,12 +9,12 @@ use Validator;
 
 class SubjectsController extends Controller
 {
-    function index()
+    public function index()
     {
     	return view('subject.index');
     }
 
-    function getData()
+    public function getData()
     {
     	$subjects = Subject::all();
     	return Datatables::of($subjects)
@@ -32,7 +32,7 @@ class SubjectsController extends Controller
  		   	->make(true);
     }
 
-    function postData(Request $request)
+    public function postData(Request $request)
     {
     	$validator = Validator::make($request->all(),[
     		'subject_code' => 'required',
@@ -82,7 +82,7 @@ class SubjectsController extends Controller
     	return json_encode($output);
     }
 
-    function fetchData(Request $request)
+    public function fetchData(Request $request)
     {
     	$id = $request->input('id');
     	$subject = Subject::find($id);
@@ -98,7 +98,7 @@ class SubjectsController extends Controller
 			
     }
 
-    function removeData(Request $request)
+    public function removeData(Request $request)
     {
         $subject = Subject::find($request->input('id'));
         if($subject->delete())
