@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Manage Subject')
+@section('title', '| Manage Subject')
 
 @section('content')
 	<section class="container mb-5">
@@ -117,7 +117,15 @@
 								else
 								{
 									$('#formOutput').html(data.success);
+									$('#subject_code').val('');
+									$('#subject_title').val('');
+									$('#subject_unit').val('');
+									$('#subject_course').val('');
+									$('#subject_sem').val('');
                   $('#storeForm')[0].reset();
+                  $('#submitValue').val('ADD');
+									$('#submitValue').removeClass('btn-warning');
+									$('#submitValue').addClass('btn-success');
                   $('#buttonAction').val('store');
                   $('#subjectTable').DataTable().ajax.reload();
 								}
@@ -143,6 +151,8 @@
 								$('#subject_course').val(data.subject_course);
 								$('#subject_sem').val(data.subject_sem);
 								$('#submitValue').val('UPDATE');
+								$('#submitValue').removeClass('btn-success');
+								$('#submitValue').addClass('btn-warning');
 								$('#buttonAction').val('update');
 							}
 						})
