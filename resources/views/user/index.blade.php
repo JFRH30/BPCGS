@@ -69,7 +69,7 @@
 					$('#userTable').DataTable({
 						proccessing: true,
 						serverSide: true,
-						ajax: '{{ route('getSubjectData') }}',
+						ajax: '{{ route('getUserData') }}',
 						columns: 
 						[
 							{data: 'name'},
@@ -91,7 +91,7 @@
 						event.preventDefault();
 						var storeData = $(this).serialize();
 						$.ajax({
-							url: '{{ route('postSubjectData') }}',
+							url: '{{ route('postUserData') }}',
 							method: 'POST',
 							data: storeData,
 							dataType: 'json',
@@ -131,7 +131,7 @@
 						var id = $(this).attr("id");
 						$('#formOutput').html('');
 						$.ajax({
-							url: '{{ route('fetchSubjectData') }}',
+							url: '{{ route('fetchUserData') }}',
 							method: 'GET',
 							data: {id:id},
 							dataType: 'json',
@@ -141,7 +141,6 @@
 								$('#email').val(data.email);
 								$('#password').val(data.password);
 								$('#position').val(data.position);
-								$('#user_sem').val(data.user_sem);
 								$('#submitValue').val('UPDATE');
 								$('#submitValue').removeClass('btn-success');
 								$('.delete').addClass('disabled');
@@ -158,7 +157,7 @@
 						if(confirm("Are you sure want to delete this this user?"))
 						{
 							$.ajax({
-								url: '{{ route('removeSubjectData') }}',
+								url: '{{ route('removeUserData') }}',
 								method: 'GET',
 								data: {id:id},
 								success: function(data)
