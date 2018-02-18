@@ -21,7 +21,7 @@ class SubjectsController extends Controller
     		->addColumn('action', function($subjects){
     			return '<div class="row">
     								<div class="col">
-	    								<a href="#" class="btn btn-xs btn-primary btn-block edit" id="'.$subjects->id.'"><i class="fa fa-edit"></i> Edit</a>
+	    								<a href="#" class="btn btn-xs btn-primary btn-block edit" id="'.$subjects->id.'"><i class="fa fa-edit"></i>Edit</a>
 	    							</div>
 	    							<br>
 	    							<div class="col">

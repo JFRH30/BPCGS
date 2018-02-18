@@ -6,7 +6,7 @@
     <div class="container my-5">
         {{-- Showcase --}}
         <section class="showcase">
-            <div class="row mb-5">
+            <div class="row mb-4">
                 <div class="col-md-3">
                     <div class="card text-white bg-danger">
                         <div class="card-body">
@@ -27,10 +27,10 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-4">
-                                    <p><i class="fa fa-university fa-4x"></i></p>
+                                    <p><i class="fa fa-user-circle fa-4x"></i></p>
                                 </div>
                                 <div class="col-8 text-right">
-                                    <h3 class="card-title">Teacher</h3>
+                                    <h3 class="card-title">Full Time</h3>
                                     <p class="card-text h4">1000</p>
                                 </div>
                             </div>
@@ -42,10 +42,10 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-4">
-                                    <p><i class="fa fa-font-awesome fa-4x"></i></p>
+                                    <p><i class="fa fa-user-circle-o fa-4x"></i></p>
                                 </div>
                                 <div class="col-8 text-right">
-                                    <h3 class="card-title">Post</h3>
+                                    <h3 class="card-title">Part Time</h3>
                                     <p class="card-text h4">1000</p>
                                 </div>
                             </div>
@@ -57,10 +57,10 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-4">
-                                    <p><i class="fa fa-user-secret fa-4x"></i></p>
+                                    <p><i class="fa fa-font-awesome fa-4x"></i></p>
                                 </div>
                                 <div class="col-8 text-right">
-                                    <h3 class="card-title">Unknown</h3>
+                                    <h3 class="card-title">Post</h3>
                                     <p class="card-text h4">1000</p>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Action</th>
+                                            <th>Course</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -100,7 +100,7 @@
                                         <tr>
                                             <th>Code</th>
                                             <th>Description</th>
-                                            <th>Action</th>
+                                            <th>Course</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -113,6 +113,39 @@
     </div>
 @endsection
 
-@push('script')
+@push('scripts')
+
+<script type="text/javascript">
+    
+    $(document).ready(function()
+    {
+        // Subject
+        $('#subjectTable').DataTable({
+            proccessing: true,
+            serverSide: true,
+            ajax: '{{ route('getSubjectData') }}',
+            columns: 
+            [
+                {data: 'subject_code'},
+                {data: 'subject_title'},
+                {data: 'subject_course'}
+            ]
+        });
+
+        User
+        $('#userTable').DataTable({
+            proccessing: true,
+            serverSide: true,
+            ajax: '{{ route('getSubjectData') }}',
+            columns: 
+            [
+                {data: 'name'},
+                {data: 'email'},
+                {data: 'action', orderable:false, searchable: false}
+            ]
+        });
+    })
+
+</script>
     
 @endpush

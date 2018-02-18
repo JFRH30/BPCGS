@@ -75,7 +75,7 @@
 					$('#subjectTable').DataTable({
 						proccessing: true,
 						serverSide: true,
-						ajax: '{{ route('getData') }}',
+						ajax: '{{ route('getSubjectData') }}',
 						columns: 
 						[
 							{data: 'subject_code'},
@@ -99,7 +99,7 @@
 						event.preventDefault();
 						var storeData = $(this).serialize();
 						$.ajax({
-							url: '{{ route('postData') }}',
+							url: '{{ route('postSubjectData') }}',
 							method: 'POST',
 							data: storeData,
 							dataType: 'json',
@@ -125,6 +125,7 @@
                   $('#storeForm')[0].reset();
                   $('#submitValue').val('ADD');
 									$('#submitValue').removeClass('btn-warning');
+									$('.delete').removeClass('disabled');
 									$('#submitValue').addClass('btn-success');
                   $('#buttonAction').val('store');
                   $('#subjectTable').DataTable().ajax.reload();
@@ -139,7 +140,7 @@
 						var id = $(this).attr("id");
 						$('#formOutput').html('');
 						$.ajax({
-							url: '{{ route('fetchData') }}',
+							url: '{{ route('fetchSubjectData') }}',
 							method: 'GET',
 							data: {id:id},
 							dataType: 'json',
@@ -152,6 +153,7 @@
 								$('#subject_sem').val(data.subject_sem);
 								$('#submitValue').val('UPDATE');
 								$('#submitValue').removeClass('btn-success');
+								$('.delete').addClass('disabled');
 								$('#submitValue').addClass('btn-warning');
 								$('#buttonAction').val('update');
 							}
@@ -165,7 +167,7 @@
 						if(confirm("Are you sure want to delete this this subject?"))
 						{
 							$.ajax({
-								url: '{{ route('removeData') }}',
+								url: '{{ route('removeSubjectData') }}',
 								method: 'GET',
 								data: {id:id},
 								success: function(data)

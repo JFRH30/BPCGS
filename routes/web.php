@@ -19,11 +19,22 @@ Route::get('/', function () {
 Route::prefix('subjects')->group(function()
 {
 	Route::get('/','SubjectsController@index')->name('subjects');
-	Route::get('getData','SubjectsController@getData')->name('getData');
-	Route::post('postData','SubjectsController@postData')->name('postData');
-	Route::get('fetchData','SubjectsController@fetchData')->name('fetchData');
-	Route::get('removeData','SubjectsController@removeData')->name('removeData');
+	Route::get('getData','SubjectsController@getData')->name('getSubjectData');
+	Route::post('postData','SubjectsController@postData')->name('postSubjectData');
+	Route::get('fetchData','SubjectsController@fetchData')->name('fetchSubjectData');
+	Route::get('removeData','SubjectsController@removeData')->name('removeSubjectData');
 });
+
+// Course
+Route::prefix('courses')->group(function()
+{
+	Route::get('/','CoursesController@index')->name('courses');
+	Route::get('getData','CoursesController@getData')->name('getCourseData');
+	Route::post('postData','CoursesController@postData')->name('postCourseData');
+	Route::get('fetchData','CoursesController@fetchData')->name('fetchCourseData');
+	Route::get('removeData','CoursesController@removeData')->name('removeCourseData');
+});
+
 
 Auth::routes();
 
