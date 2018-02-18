@@ -46,16 +46,16 @@
                                   <h3>Bulacan Polytechnic College</h3>
                                   <p>Grading System</p>
                               </div>
-                              <form>
-                                  <div class="form-group">
-                                      <input type="email" class="form-control" placeholder="Email">
-                                  </div>
-                                  <div class="form-group">
-                                      <input type="password" class="form-control" placeholder="Password">
-                                  </div>
-                                  <hr>
-                                  <input type="submit" value="Login" class="btn btn-outline-primary btn-block">
-                              </form>
+                              {!! Form::open(['route'=>'login']) !!}
+                                <div class="form-group">
+                                  {!! Form::email('email', '', ['class'=>'form-control', 'placeholder'=>'Email']) !!}
+                                </div>
+                                <div class="form-group">
+                                  {!! Form::password('password', ['class'=>'form-control', 'placeholder'=>'Password']) !!}
+                                </div>
+                                <hr>
+                                {!! Form::submit('Login', ['class'=>'btn btn-block btn-outline-primary']) !!}
+                              {!! Form::close() !!}
                           </div>
                       </div>
                   </div>
