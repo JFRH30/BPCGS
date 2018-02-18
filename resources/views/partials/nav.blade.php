@@ -16,11 +16,11 @@
           <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
           <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
         @else
+          <li class="nav-item"><a href="{{ route('home') }}" class="nav-link"><i class="fa fa-home"></i> Dashboard</a></li>
           <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-files-o"></i> Manage</a></li>
           <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-file"></i> Records</a></li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -29,7 +29,6 @@
                 <i class="fa fa-sign-out"></i>
                 Logout
               </a>
-
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
               </form>
