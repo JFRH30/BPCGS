@@ -35,6 +35,15 @@ Route::prefix('courses')->group(function()
 	Route::get('removeData','CoursesController@removeData')->name('removeCourseData');
 });
 
+// User
+Route::prefix('users')->group(function()
+{
+	Route::get('/','UsersController@index')->name('users');
+	Route::get('getData','UsersController@getData')->name('getUserData');
+	Route::post('postData','UsersController@postData')->name('postUserData');
+	Route::get('fetchData','UsersController@fetchData')->name('fetchUserData');
+	Route::get('removeData','UsersController@removeData')->name('removeUserData');
+});
 
 Auth::routes();
 
