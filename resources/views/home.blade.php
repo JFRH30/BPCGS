@@ -144,7 +144,7 @@
                 {data: 'position'}
             ]
         });
-    })
+    });
 
 </script>
     
