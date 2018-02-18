@@ -82,7 +82,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Course</th>
+                                            <th>Type</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -132,16 +132,16 @@
             ]
         });
 
-        User
+        // User
         $('#userTable').DataTable({
             proccessing: true,
             serverSide: true,
-            ajax: '{{ route('getSubjectData') }}',
+            ajax: '{{ route('getUserData') }}',
             columns: 
             [
                 {data: 'name'},
                 {data: 'email'},
-                {data: 'action', orderable:false, searchable: false}
+                {data: 'position'}
             ]
         });
     })
