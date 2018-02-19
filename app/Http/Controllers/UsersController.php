@@ -38,7 +38,7 @@ class UsersController extends Controller
     		'name' => 'required',
     		'email' => 'required',
     		'password' => 'required',
-    		'position' => 'required'
+    		// 'position' => 'required'
     	]);
     	$error = array();
     	$success = '';
@@ -55,7 +55,7 @@ class UsersController extends Controller
     				'name' => $request->get('name'),
     				'email' => $request->get('email'),
     				'password' => $request->get('password'),
-    				'position' => $request->get('position')
+    				// 'position' => $request->get('position')
     			]);
     			$user->save();
     			$success = '<script>toastr.success("User Inserted")</script>';
@@ -88,7 +88,7 @@ class UsersController extends Controller
     		'name' => $user->name,
     		'email' => $user->email,
     		'password' => $user->password,
-    		'position' => $user->position
+    		// 'position' => $user->position
     	);
     	return json_encode($output);
 			
