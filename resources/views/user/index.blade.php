@@ -24,10 +24,10 @@
 							{!! Form::label('password', 'Password:') !!}
 							{!! Form::password('password', ['class'=>'form-control', 'placeholder'=>'Enter password']) !!}
 						</div>
-{{-- 						<div class="form-group">
+						<div class="form-group">
 							{!! Form::label('position', 'Position:') !!}
 							{!! Form::select('position', ['Admin'=>'Admin', 'Registrar'=>'Registrar', 'Teacher'=>'Teacher', 'Parent'=>'Parent', 'Student'=>'Student'], null, ['class'=>'form-control', 'placeholder'=>'--- Select position ---']) !!}
-						</div> --}}
+						</div>
 						<hr>
 							{!! Form::hidden('userid', '', ['id'=>'userid']) !!}
 							{!! Form::hidden('buttonAction', 'store', ['id'=>'buttonAction']) !!}
@@ -47,7 +47,7 @@
 							    <tr>
 							      <th scope="col">Name</th>
 							      <th scope="col">Email</th>
-							      {{-- <th scope="col">Position</th> --}}
+							      <th scope="col">Position</th>
 							      <th scope="col">Action</th>
 							    </tr>
 							  </thead>
@@ -74,7 +74,7 @@
 						[
 							{data: 'name'},
 							{data: 'email'},
-							// {data: 'position'},
+							{data: 'position'},
 							{data: 'action', orderable:false, searchable: false}
 						]
 					});
@@ -112,7 +112,7 @@
 									$('#name').val('');
 									$('#email').val('');
 									$('#password').val('');
-									// $('#position').val('');
+									$('#position').val('');
                   $('#storeForm')[0].reset();
                   $('#submitValue').val('ADD');
 									$('#submitValue').removeClass('btn-warning');
@@ -140,7 +140,7 @@
 								$('#name').val(data.name);
 								$('#email').val(data.email);
 								$('#password').val(data.password);
-								// $('#position').val(data.position);
+								$('#position').val(data.position);
 								$('#submitValue').val('UPDATE');
 								$('#submitValue').removeClass('btn-success');
 								$('.delete').addClass('disabled');
