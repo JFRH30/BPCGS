@@ -20,14 +20,14 @@ class CoursesController extends Controller
     	return Datatables::of($courses)
     		->addColumn('action', function($courses){
     			return '<div class="row">
-    								<div class="col">
-	    								<a href="#" class="btn btn-xs btn-primary btn-block edit" id="'.$courses->id.'"><i class="fa fa-edit"></i>Edit</a>
-	    							</div>
-	    							<br>
-	    							<div class="col">
-	    								<a href="#" class="btn btn-xs btn-danger btn-block delete" id="'.$courses->id.'"><i class="fa fa-trash"></i> Delete</a>
-	    							</div>
-    							</div>';
+							<div class="col">
+								<a href="#" class="btn btn-xs btn-primary btn-block edit" id="'.$courses->id.'"><i class="fa fa-edit"></i>Edit</a>
+							</div>
+							<br>
+							<div class="col">
+								<a href="#" class="btn btn-xs btn-danger btn-block delete" id="'.$courses->id.'"><i class="fa fa-trash"></i> Delete</a>
+							</div>
+						</div>';
     		})
  		   	->make(true);
     }
